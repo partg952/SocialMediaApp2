@@ -3,8 +3,11 @@
 
     <solid android:color="@color/white"/>
 
-    <gradient android:startColor="@color/purple_200"
-        android:endColor="@android:color/holo_red_light"/>
-
+    <gradient
+        android:startColor="#6242d4"
+        android:centerColor="#774cd8"
+        android:type="linear"
+        android:endColor="#9d5bd2">
+    </gradient>
 
 </shape>

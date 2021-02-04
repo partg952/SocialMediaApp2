@@ -14,14 +14,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="#6242d4"
         app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="#9d5bd2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
