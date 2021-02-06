@@ -2,6 +2,7 @@ package com.example.socialmediaapp
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,10 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import maes.tech.intentanim.CustomIntent
 
@@ -17,7 +22,7 @@ class Manager2(private var context: Context, private var array: ArrayList<String
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
 
         var image = itemView.findViewById<ImageView>(R.id.image)
-        var share = itemView.findViewById<FloatingActionButton>(R.id.imageButton3)
+        var share = itemView.findViewById<FloatingActionButton>(R.id.imageButton2)
         var prog = itemView.findViewById<ProgressBar>(R.id.progressBar)
        
       init {
@@ -45,7 +50,20 @@ class Manager2(private var context: Context, private var array: ArrayList<String
     
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        var currentpos = array[position]
-        Glide.with(context).load(currentpos).into(holder.image)
+      holder.prog.visibility = View.VISIBLE
+        Glide.with(context).load(currentpos).listener(object:RequestListener<Drawable?>{
+          override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {
+            holder.prog.visibility = View.GONE
+            holder.image.setImageResource(R.drawable.ic_baseline_error_24)
+            return false
+          }
+  
+          override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable?>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+            holder.prog.visibility = View.GONE
+            return false
+          }
+  
+        }).into(holder.image)
     }
     
     override fun getItemCount() = array.size
