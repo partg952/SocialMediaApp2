@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -15,8 +16,9 @@ class Manager2(private var context: Context, private var array: ArrayList<String
 
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
 
-        var image = itemView.findViewById<ImageView>(R.id.imageView3)
-        var share = itemView.findViewById<FloatingActionButton>(R.id.floatingActionButton4)
+        var image = itemView.findViewById<ImageView>(R.id.image)
+        var share = itemView.findViewById<FloatingActionButton>(R.id.imageButton3)
+        var prog = itemView.findViewById<ProgressBar>(R.id.progressBar)
        
       init {
         image.setOnClickListener {
@@ -37,7 +39,7 @@ class Manager2(private var context: Context, private var array: ArrayList<String
     }
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       var view = LayoutInflater.from(context).inflate(R.layout.card2,parent,false)
+       var view = LayoutInflater.from(context).inflate(R.layout.card,parent,false)
         return ViewHolder(view)
     }
     
