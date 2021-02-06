@@ -33,7 +33,7 @@ class second(context: Context) : Fragment() {
         var members = view.findViewById<FloatingActionButton>(R.id.floatingActionButton2)
         var addimage = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         var liked = view.findViewById<FloatingActionButton>(R.id.floatingActionButton3)
-
+        var posts = view.findViewById<FloatingActionButton>(R.id.floatingActionButton5)
         var email = FirebaseAuth.getInstance().currentUser?.email.toString()
 
         text.text = email
@@ -77,6 +77,20 @@ class second(context: Context) : Fragment() {
                 return true
             }
         
+        })
+
+        posts.setOnClickListener {
+            var intent = Intent(requireContext(),Posts::class.java)
+            startActivity(intent)
+            CustomIntent.customType(requireContext(),"fadein-to-fadeout")
+        }
+
+        posts.setOnLongClickListener(object :View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+                Snackbar.make(v!!,"Click To see Posts",Snackbar.LENGTH_SHORT).show()
+                return true
+            }
+
         })
 
 

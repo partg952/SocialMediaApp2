@@ -40,6 +40,8 @@ class Sign_Up : AppCompatActivity() {
                 .setValue(email)
               FirebaseDatabase.getInstance().getReference().child("user").child("$gmail").child("LikeSystem").child("Likes")
                       .setValue(0)
+              FirebaseDatabase.getInstance().getReference().child("user").child("$gmail").child("uploaded").child("uploads")
+                .setValue(0)
               // TODO:Add Intent
               var intent = Intent(this@Sign_Up,MainActivity::class.java)
               intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
